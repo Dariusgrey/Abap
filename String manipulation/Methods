@@ -1,0 +1,33 @@
+DATA(gv_substring) = substring( val = sy-abcde     "abcde...xyz
+                                off = 5            "str+1 Starting position to be read
+                                len = 18      ).   "str(18) No. of char to be read
+                                
+DATA(gv_substring_from) = substring_from( val  = sy-abcde     "abcde...xyz
+                                          sub  = 'de'         "Starting position to be read
+                                          case = abap_false  "Not case sensitive (by default case sensitive)
+                                          len  = 5      ).   "str(5) No. of char to be read
+
+DATA(gv_substring_after) = substring_after( val  = |{ sy-abcde}de2fghijk| "abcde...xyzde2fghijk
+                                            sub  = 'de'                   "Starting position to be read
+                                            case = abap_false             "Not case sensitive (by default case sensitive)
+                                            occ  = 2                      "In the second occurrence in val 
+                                            len  = 5      ).              "str(5) No. of char to be read
+
+DATA(gv_substring_before) = substring_before( val  = sy-abcde   "abcde...xyz
+                                              sub  = 'de'    ). "till which str is going to be read
+                                           
+DATA(gv_substring_to) = substring_to( val  = sy-abcde   "abcde...xyz
+                                      sub  = 'de'    ). "till which str is going to be read (include 'de')
+                                              
+DATA(gv_length) = cl_swf_exp_wfsyst_string=>length('pazzo').
+
+DATA(gv_string) = cl_swf_exp_wfsyst_string=>to_string( 4 ).
+
+
+DATA(gv_upper) = to_upper('pazzo').
+
+DATA(gv_lower) = to_lower(gv_upper).
+
+DATA(gv_concat) = cl_swf_exp_wfsyst_string=>concat( str1      = gv_upper
+                                                    str2      = gv_upper
+                                                    separator = '#' ).
